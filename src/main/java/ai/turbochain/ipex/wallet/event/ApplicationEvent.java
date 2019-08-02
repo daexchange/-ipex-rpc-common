@@ -33,6 +33,7 @@ public class ApplicationEvent implements ApplicationListener<ContextRefreshedEve
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         if(watcher != null) {
             logger.info("=======初始化区块监视器=====");
+            logger.info("币名===={}",coin.getName());
             WatcherLog watcherLog = watcherLogService.findOne(coin.getName());
             logger.info("watcherLog:{}",watcherLog);
             if (watcherLog != null ) {

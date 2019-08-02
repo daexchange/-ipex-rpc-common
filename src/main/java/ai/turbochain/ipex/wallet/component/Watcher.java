@@ -35,7 +35,7 @@ public abstract class Watcher implements Runnable{
                 logger.info("replay block from {} to {}", startBlockNumber, currentBlockHeight);
                 List<Deposit> deposits = replayBlock(startBlockNumber, currentBlockHeight);
                 deposits.forEach(deposit -> {
-                    depositEvent.onConfirmed(deposit);
+                    depositEvent.onConfirmed(deposit);           
                 });
                 //记录日志
                 watcherLogService.update(coin.getName(),currentBlockHeight);
