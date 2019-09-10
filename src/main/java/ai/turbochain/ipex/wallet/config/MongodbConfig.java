@@ -1,10 +1,8 @@
 package ai.turbochain.ipex.wallet.config;
 
-import com.mongodb.Mongo;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import ai.turbochain.ipex.wallet.converter.BigDecimalToDecimal128Converter;
-import ai.turbochain.ipex.wallet.converter.Decimal128ToBigDecimalConverter;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -12,14 +10,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
+import org.springframework.data.mongodb.core.convert.CustomConversions;
 import org.springframework.data.mongodb.core.convert.DefaultDbRefResolver;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
-import org.springframework.data.mongodb.core.convert.CustomConversions;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+
+import ai.turbochain.ipex.wallet.converter.BigDecimalToDecimal128Converter;
+import ai.turbochain.ipex.wallet.converter.Decimal128ToBigDecimalConverter;
 
 @Configuration
 @ConditionalOnProperty(name="spring.data.mongodb.uri")
@@ -41,11 +42,6 @@ public class MongodbConfig extends AbstractMongoConfiguration {
     public Mongo mongo() throws Exception {
         MongoClient mongoClient = new MongoClient(this.getMongoClientURI());
         return mongoClient;
-    }
-
-    @Bean
-    public MongoDbFactory dbFactory() throws Exception {
-        return new SimpleMongoDbFactory(this.mongo(),this.getDatabaseName());
     }
 
     @Bean

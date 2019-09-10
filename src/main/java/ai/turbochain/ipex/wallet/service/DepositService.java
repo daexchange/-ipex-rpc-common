@@ -1,11 +1,6 @@
 package ai.turbochain.ipex.wallet.service;
 
-import ai.turbochain.ipex.wallet.entity.Account;
-import ai.turbochain.ipex.wallet.entity.Coin;
-import ai.turbochain.ipex.wallet.entity.Deposit;
-import ai.turbochain.ipex.wallet.entity.Coin;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -13,7 +8,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import ai.turbochain.ipex.wallet.entity.Coin;
+import ai.turbochain.ipex.wallet.entity.Deposit;
 
 @Service
 public class DepositService {

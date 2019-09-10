@@ -1,19 +1,17 @@
 package ai.turbochain.ipex.wallet.event;
 
-import ai.turbochain.ipex.wallet.component.Watcher;
-import ai.turbochain.ipex.wallet.entity.Coin;
-import ai.turbochain.ipex.wallet.entity.Deposit;
-import ai.turbochain.ipex.wallet.entity.WatcherLog;
-import ai.turbochain.ipex.wallet.entity.WatcherSetting;
-import ai.turbochain.ipex.wallet.service.DepositService;
-import ai.turbochain.ipex.wallet.service.WatcherLogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
+
+import ai.turbochain.ipex.wallet.component.Watcher;
+import ai.turbochain.ipex.wallet.entity.Coin;
+import ai.turbochain.ipex.wallet.entity.WatcherLog;
+import ai.turbochain.ipex.wallet.entity.WatcherSetting;
+import ai.turbochain.ipex.wallet.service.WatcherLogService;
 
 @Service
 public class ApplicationEvent implements ApplicationListener<ContextRefreshedEvent> {

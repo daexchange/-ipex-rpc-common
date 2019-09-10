@@ -1,16 +1,15 @@
 package ai.turbochain.ipex.wallet.component;
 
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import ai.turbochain.ipex.wallet.entity.Coin;
 import ai.turbochain.ipex.wallet.entity.Deposit;
 import ai.turbochain.ipex.wallet.event.DepositEvent;
 import ai.turbochain.ipex.wallet.service.WatcherLogService;
-import ai.turbochain.ipex.wallet.entity.Coin;
-import ai.turbochain.ipex.wallet.event.DepositEvent;
 import lombok.Data;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 @Data
 public abstract class Watcher implements Runnable{
@@ -68,7 +67,7 @@ public abstract class Watcher implements Runnable{
             }
             else {
                 try {
-                    Thread.sleep(Math.max(nextCheck - System.currentTimeMillis(), 100));
+                	Thread.sleep(Math.max(nextCheck - System.currentTimeMillis(), 100));
                 } catch (InterruptedException ex) {
                     logger.info(ex.getMessage());
                 }

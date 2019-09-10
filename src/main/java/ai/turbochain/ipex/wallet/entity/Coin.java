@@ -22,4 +22,5 @@ public class Coin {
     private BigDecimal rechargeMinerFee;
     private String ignoreFromAddress;
     private String masterAddress;
+    private String apiKey;
 }

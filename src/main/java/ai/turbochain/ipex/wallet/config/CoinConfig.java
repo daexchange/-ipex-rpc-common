@@ -1,14 +1,13 @@
 package ai.turbochain.ipex.wallet.config;
 
 
-import ai.turbochain.ipex.wallet.entity.Coin;
-import ai.turbochain.ipex.wallet.entity.WatcherSetting;
-import ai.turbochain.ipex.wallet.entity.Coin;
-import ai.turbochain.ipex.wallet.entity.WatcherSetting;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import ai.turbochain.ipex.wallet.entity.Coin;
+import ai.turbochain.ipex.wallet.entity.WatcherSetting;
 
 /**
  * 自动配置币种参数
@@ -30,5 +29,4 @@ public class CoinConfig {
         WatcherSetting setting = new WatcherSetting();
         return setting;
     }
-
 }
