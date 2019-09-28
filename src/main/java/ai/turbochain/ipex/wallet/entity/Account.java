@@ -10,6 +10,9 @@ public class Account {
     private String account;
     private String address;
     private String password;
+    private String priv;
+    private String guid;
+    private String email;
     //私钥路径
     private String walletFile;
     private BigDecimal balance = BigDecimal.ZERO;

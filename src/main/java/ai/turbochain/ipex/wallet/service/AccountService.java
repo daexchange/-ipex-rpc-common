@@ -1,13 +1,8 @@
 package ai.turbochain.ipex.wallet.service;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.WriteResult;
-import ai.turbochain.ipex.wallet.entity.Account;
-import ai.turbochain.ipex.wallet.entity.BalanceSum;
-import ai.turbochain.ipex.wallet.entity.Coin;
-import ai.turbochain.ipex.wallet.entity.Account;
-import ai.turbochain.ipex.wallet.entity.BalanceSum;
-import ai.turbochain.ipex.wallet.entity.Coin;
+import java.math.BigDecimal;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -19,9 +14,12 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.List;
+import com.mongodb.BasicDBObject;
+import com.mongodb.WriteResult;
+
+import ai.turbochain.ipex.wallet.entity.Account;
+import ai.turbochain.ipex.wallet.entity.BalanceSum;
+import ai.turbochain.ipex.wallet.entity.Coin;
 
 @Service
 public class AccountService {
@@ -90,6 +88,28 @@ public class AccountService {
 		Criteria criteria = Criteria.where("address").is(address);
 		query.addCriteria(criteria);
 		return mongoTemplate.exists(query, getCollectionName());
+	}
+
+	/**
+	 * 保存账号，并且删除老的的账号
+	 * 
+	 * @param username
+	 * @param address
+	 * @param password
+	 * @param guid
+	 * @param email
+	 * @param priv
+	 */
+	public void saveOne(String username, String address, String password, String guid, String priv, String email) {
+		removeByName(username);
+		Account account = new Account();
+		account.setAccount(username);
+		account.setAddress(address);
+		account.setPassword(password);
+		account.setGuid(guid);
+		account.setPriv(priv);
+		account.setEmail(email);
+		save(account);
 	}
 
 	/**
