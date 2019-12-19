@@ -1,7 +1,7 @@
 package ai.turbochain.ipex.wallet.util;
 
-import com.spark.blockchain.rpcclient.BitcoinException;
-import com.spark.blockchain.rpcclient.BitcoinRPCClient;
+//import com.spark.blockchain.rpcclient.BitcoinException;
+//import com.spark.blockchain.rpcclient.BitcoinRPCClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  */
 public class WalletOperationUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(WalletOperationUtil.class);
+    /*private static Logger logger = LoggerFactory.getLogger(WalletOperationUtil.class);
 
     //前提，钱包已加锁并重启。
     //钱包解密 walletpassphrase <passphrase> <timeout> [mintonly]
@@ -26,5 +26,5 @@ public class WalletOperationUtil {
 
             rpcClient.query("walletlock");
 
-    }
+    }*/
 }

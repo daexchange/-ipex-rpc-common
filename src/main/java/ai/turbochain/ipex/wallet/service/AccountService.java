@@ -94,28 +94,6 @@ public class AccountService {
 	 * 保存账号，并且删除老的的账号
 	 * 
 	 * @param username
-	 * @param address
-	 * @param password
-	 * @param guid
-	 * @param email
-	 * @param priv
-	 */
-	public void saveOne(String username, String address, String password, String guid, String priv, String email) {
-		removeByName(username);
-		Account account = new Account();
-		account.setAccount(username);
-		account.setAddress(address);
-		account.setPassword(password);
-		account.setGuid(guid);
-		account.setPriv(priv);
-		account.setEmail(email);
-		save(account);
-	}
-
-	/**
-	 * 保存账号，并且删除老的的账号
-	 * 
-	 * @param username
 	 * @param fileName
 	 * @param address
 	 * @param password
