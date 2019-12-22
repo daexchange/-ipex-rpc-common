@@ -215,6 +215,20 @@ public class AccountService {
 		List<BalanceSum> list = results.getMappedResults();
 		return list.get(0).getTotalBalance().setScale(8, BigDecimal.ROUND_DOWN);
 	}
+	
+	/**
+	 * 更新余额
+	 *
+	 * @param address
+	 * @param balance
+	 */
+	public void updateBTCBalance(String address, BigDecimal balance) {
+		Query query = new Query();
+		Criteria criteria = Criteria.where("address").is(address);
+		query.addCriteria(criteria);
+		WriteResult result = mongoTemplate.updateFirst(query,
+				Update.update("balance", balance.setScale(8, BigDecimal.ROUND_DOWN)), getCollectionName());
+	}
 
 	/**
 	 * 更新余额
