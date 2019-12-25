@@ -107,6 +107,24 @@ public class AccountService {
 		account.setWalletFile(fileName);
 		save(account);
 	}
+	
+	/**
+	 * 保存账号，并且删除老的的账号
+	 * 
+	 * @param username
+	 * @param fileName
+	 * @param address
+	 * @param password
+	 */
+	public void saveBTCOne(String username, String fileName, String address, String password) {
+		removeByName(username);
+		Account account = new Account();
+		account.setAccount(username);
+		account.setAddress(address);
+		account.setPassword(password);
+		account.setWalletFile(fileName);
+		save(account);
+	}
 
 	/**
 	 * 保存账号，并且删除老的的账号
