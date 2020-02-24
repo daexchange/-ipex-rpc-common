@@ -73,4 +73,12 @@ public abstract class Watcher implements Runnable {
 			}
 		}
 	}
+	
+	public Long getCurrentBlockHeight() {
+		return currentBlockHeight;
+	}
+	
+	public Long setCurrentBlockHeight(Long currentBlockHeightValue) {
+		return currentBlockHeight = currentBlockHeightValue;
+	}
 }
